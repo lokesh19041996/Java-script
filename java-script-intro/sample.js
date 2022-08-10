@@ -11,6 +11,8 @@ var d=(b+c-a)
 console.log(d)
 console.log(typeof d)
 
+
+// 2. String
 var empname="lokesh"
 var emplocation="bangalore"
 console.log(empname)
@@ -18,3 +20,12 @@ console.log(emplocation)
 console.log(typeof empname);
 console.log(typeof emplocation);
 
+// 3 Boolean
+
+var bool=true
+var lean=false
+console.log(bool);
+console.log(lean);
+
+console.log(typeof bool);
+console.log(typeof lean);
