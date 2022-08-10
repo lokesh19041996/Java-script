@@ -29,3 +29,9 @@ console.log(lean);
 
 console.log(typeof bool);
 console.log(typeof lean);
+
+// 4 undefined
+
+var empemail;
+console.log(empemail);
+console.log(typeof empemail);
