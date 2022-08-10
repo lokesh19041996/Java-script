@@ -10,3 +10,11 @@ var c=30;
 var d=(b+c-a)
 console.log(d)
 console.log(typeof d)
+
+var empname="lokesh"
+var emplocation="bangalore"
+console.log(empname)
+console.log(emplocation)
+console.log(typeof empname);
+console.log(typeof emplocation);
+
