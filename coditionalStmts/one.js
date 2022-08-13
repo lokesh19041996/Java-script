@@ -17,3 +17,15 @@ if (flag) {
 else {
     console.log("GN")
 }
+
+let a=30;
+let b=20;
+
+if(a<b){
+    document.write("true")
+}
+else{
+    document.write("true")
+}
+
+
