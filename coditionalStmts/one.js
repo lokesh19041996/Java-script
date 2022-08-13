@@ -29,3 +29,12 @@ else{
 }
 
 
+//even or odd
+
+var price = 201;
+if (price % 2 == 0) {
+    console.log("Even Number")
+}
+else {
+    console.log("Odd Number")
+}
