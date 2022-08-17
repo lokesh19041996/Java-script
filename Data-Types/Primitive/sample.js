@@ -41,10 +41,29 @@
 
 //logical
 
-let hour = 7
+// let hour = 7
 
-if (hour < 10 || hour > 18) {
-    // console.log('The office is closed.');
-    document.write("The office is closed")
-}
+// if (hour < 10 || hour > 18) {
+//     // console.log('The office is closed.');
+//     document.write("The office is closed")
+// }
 
+
+
+// and operator
+
+const x = 7;
+const y = 4;
+
+
+console.log(x < 10 && y > 1)
+console.log(x > 10 && y > 1);
+
+
+// or operator
+
+const x1 = 7;
+const y1 = 4;
+
+console.log(x1 < 10 || y1 > 1)
+console.log(x1 > 10 || y1 > 1);
