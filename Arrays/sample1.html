@@ -15,26 +15,45 @@
 
 
     let fruits1 = ["mango", "banana", "orange", "grapes"]
-    document.write(fruits[0] + "<br>")
-    document.write(fruits[1] + "<br>")
-    document.write(fruits[2] + "<br>")
-    document.write(fruits[3] + "<br>")
+    document.write("index values :" + fruits[0] + "<br>")
+    document.write("index values :" + fruits[1] + "<br>")
+    document.write("index values :" + fruits[2] + "<br>")
+    document.write("index values :" + fruits[3] + "<br>")
 
 
     // for loop
 
     let fruits2 = ["mango", "banana", "orange", "grapes"]
-    for (i = 0; i <= 3; i++) {
-      document.write(fruits2[i] + "<br>")
+    for (let i = 0; i <= 3; i++) {
+      document.write("for loop : " + fruits2[i] + "<br>")
     }
 
 
     // for of
-    
-    let fruits3 = ["mango", "banana", "orange", "grapes"]
+
+    let fruits3 = ["mango", "banana", "orange", "grapes" + "<br>"]
     for (fruit of fruits3) {
-      document.write(fruit + "<br>")
+      document.write("for of : " + fruit + "<br>")
     }
+
+    //while loop
+
+    let fruits4 = ["mango", "banana", "orange", "grapes"+ "<br>"]
+    let i = 0;
+    while (i <= 3) {
+      document.write(" while : " + fruits4[i] + "<br>")
+      i++
+    }
+
+
+    //length
+
+    let fruits5 = ["mango", "banana", "orange", "grapes"]
+    document.write("length :" + fruits5.length+"<br>")
+    // for (i = 0; i <= fruits5.length - 1; i++) {
+    //   document.write("length :" + fruits5[i]+ "<br>")
+    // }
+
 
   </script>
 </body>
