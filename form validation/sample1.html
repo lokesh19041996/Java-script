@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sample1</title>
+</head>
+
+<body>
+  <form>
+    <label for="">username</label>
+    <input type="text" id="username"><br><br>
+    <label for="">email</label>
+    <input type="email" id="email"><br><br>
+    <label for="">password</label>
+    <input type="password" id="password"><br><br>
+    <label for="">city</label>
+    <input type="text" id="city"><br><br>
+    <label for="">state</label>
+    <input type="text" id="state"><br><br>
+    <button onclick="getuser()" type="button" id="adduserbtn">get user</button>
+    <button onclick="updateuser()" type="button" id="updateuserbtn" style="display:none ;">update user</button>
+
+  </form>
+  <br>
+
+  <table border="2">
+    <thead>
+      <th>username</th>
+      <th>email</th>
+      <th>password</th>
+      <th>city</th>
+      <th>state</th>
+      <th>edit</th>
+      <th>delete</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script>
+    var users = JSON.parse(localStorage.getItem("users"))
+    var index;
+    console.log("data saved", users);
+    if (users == null) {
+      users = []
+    }
+
+    //create a user
+    // Read a user
+    // update a user
+    //delete a user
+
+    // 1.  create a user
+
+    function getuser() {
+      let user = {
+        username: "",
+        email: "",
+        password: "",
+        city: "",
+        state: ""
+      }
+      for (a in user) {
+        user[a] = document.getElementById(a).value
+      }
+      users.push(user)
+      localStorage.setItem("users", JSON.stringify(users))
+      displayAllusers()
+      clearForm(user)
+    }
+    function displayAllusers() {
+      document.querySelector("tbody").innerHTML = ""
+      users.forEach((user, i) => {
+        var myTr = document.createElement("tr")
+        for (a in user) {
+          var mytd = document.createElement("td")
+          mytd.innerHTML = user[a]
+          myTr.appendChild(mytd)
+        }
+
+        var editTd = document.createElement("td")
+        var deleteTd = document.createElement("td")
+
+        var editbtn = document.createElement("button")
+        editbtn.innerHTML = "edit"
+        editbtn.setAttribute("onclick", "editUser(" + i + ")")
+        var deletebtn = document.createElement("button")
+        deletebtn.innerHTML = "delete"
+        deletebtn.setAttribute("onclick", "deleteUser(" + i + ")")
+
+
+        editTd.appendChild(editbtn)
+        deleteTd.appendChild(deletebtn)
+        myTr.appendChild(editTd)
+        myTr.appendChild(deleteTd)
+
+
+        document.querySelector("tbody").appendChild(myTr)
+      })
+    }
+    // this line execute when application starts
+    displayAllusers()
+
+
+
+
+    function deleteUser(i) {
+      // console.log("delete successfully" + i);
+      users.splice(i, 1)
+      localStorage.setItem("users", JSON.stringify(users))
+      displayAllusers()
+    }
+
+
+    function editUser(i) {
+      // console.log(users[i]);
+      index = i
+      document.getElementById("adduserbtn").style.display = "none"
+      document.getElementById("updateuserbtn").style.display = "block"
+      var selecteduser = users[i]
+      for (a in selecteduser) {
+        document.getElementById(a).value = selecteduser[a]
+      }
+    }
+
+    function updateuser() {
+      let user = {
+        username: "",
+        email: "",
+        password: "",
+        city: "",
+        state: ""
+      }
+      for (a in user) {
+        user[a] = document.getElementById(a).value
+      }
+      users[index] = user
+      localStorage.setItem("users", JSON.stringify(users))
+      displayAllusers()
+      clearForm(user)
+      document.getElementById("adduserbtn").style.display = "block"
+      document.getElementById("updateuserbtn").style.display = "none"
+    }
+
+
+    function clearForm(user) {
+      for (a in user) {
+        document.getElementById(a).value = ""
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
