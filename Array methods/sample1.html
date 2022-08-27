@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array methods</title>
+</head>
+
+<body>
+  <script>
+    // var alphabets = ["aa", "ab", "ac", "ad", "ae", "af"]
+    // alphabets.push("aaa")
+    // document.write(alphabets)  // push method will add a value to the last
+
+    // alphabets.unshift("abc")
+    // document.write(alphabets)   // unshift method will add value to first
+
+    // alphabets.splice(3, 0, "az")  // 
+    // document.write(alphabets + "<br>")
+
+    // alphabets.splice(1, 1, "abc")  // 
+    // document.write(alphabets + "<br>")
+
+    // alphabets.splice(1, 2, "rrr")  // 
+    // document.write(alphabets + "<br>") // splice method will add a value at given index
+
+    // alphabets.pop()
+    // document.write(alphabets) // pop will remove last value of the array
+
+    // alphabets.shift()
+    // document.write(alphabets) // shift will remove first value of the array
+
+
+    // alphabets.sort()
+    // document.write(alphabets)
+
+
+    // alphabets.reverse()
+    // document.write(alphabets)
+
+
+
+    // Es6 
+
+
+    var names = ["lokesh", "sankar", "dilip", "kumar", "somu"]
+    // var letter4 = names.find(function (name) {
+    //   return name.length == 4
+    // })
+    // console.log(letter4);
+
+
+
+    // var char5 = names.find((c5) => {
+    //   return c5.length == 5
+    // })
+    // console.log(char5);
+
+
+    // var char5 = names.filter((c5) => {
+    //   return c5.length == 5
+    // })
+    // console.log(char5);
+
+
+    // names.forEach((name,i)=>{    // for each will help you to iterate or read all values in an array
+    //   document.write(name+"<br>")
+    // })
+
+    // var nameslist = names.map((namelist) => {
+    //   return namelist + "@gmail.com" + "<br>"
+    // })
+    // document.write(nameslist)
+
+
+
+    // every method will return true if all the values satisfy the condition
+    // let check=names.every(function (name){
+    //   return name.length >=4
+    // })
+    // console.log(check);
+
+
+    let check=names.some(function (name){
+      return name.length >=4
+    })
+    console.log(check);
+  </script>
+</body>
+
+</html>
