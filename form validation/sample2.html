@@ -20,10 +20,12 @@
     <input type="password" id="password"><br>
     <label>state</label>
     <input type="text" id="state"><br><br>
-    <button type="button" onclick="getUser()" class="btn btn-primary">get user</button>
+    <button type="button" onclick="getUser()" class="btn btn-primary" id="adduser">get user</button>
+    <button type="button" onclick="updateUser()" class="btn btn-primary" id="updatebtn" style="display:none ;">update user</button>
+
   </form><br>
 
-  <table border="1">
+  <table class="table">
     <thead>
       <th>First name</th>
       <th>email</th>
@@ -37,36 +39,115 @@
     </tbody>
   </table>
   <script>
-    var users=[]
+    var users = JSON.parse(localStorage.getItem("users"))
+    // console.log("i have data",users);
+    if (users == null) {
+      users = []
+    }
+    var index;
     function getUser() {
       let user = {
         fname: "",
         email: "",
-        password:"",
-        state:""
+        password: "",
+        state: ""
       }
-      for(a in user){
-        user[a]=document.getElementById(a).value
+      for (a in user) {
+        user[a] = document.getElementById(a).value
         // console.log(user[a]);
       }
       users.push(user)
       // console.log(users);
+      localStorage.setItem("users", JSON.stringify(users))
+      clearForm()      
+      displayAllusers()
     }
-    function displayAllusers(){
-      users.map((user)=>{
-        var myTr=document.createElement("tr")
-        for(a in user){
-          var myTd=document.createElement("td")
-          myTd.innerHTML=user[a]
+    function displayAllusers() {
+      document.querySelector("tbody").innerHTML = ""
+      users.map((user, i) => {
+        var myTr = document.createElement("tr")
+        for (a in user) {
+          var myTd = document.createElement("td")
+          myTd.innerHTML = user[a]
           myTr.appendChild(myTd)
         }
 
-        var editTd=document.createElement("td")
-        var editbtn=document.createElement("button")
-        editTd.appendChild(editbtn)
+        var editTd = document.createElement("td")
+        var editBtn = document.createElement("button")
+        editBtn.innerHTML = "edit"
+        editBtn.setAttribute("onclick", "edituser(" + i + ")")
+        editBtn.setAttribute("class", "btn btn-warning")
+        editTd.appendChild(editBtn)
+        myTr.appendChild(editTd)
+
+
+        var delTd = document.createElement("td")
+        var delBtn = document.createElement("button")
+        delBtn.innerHTML = "delete"
+        delBtn.setAttribute("onclick", "deleteuser(" + i + ")")
+        delBtn.setAttribute("class", "btn btn-danger")
+        delTd.appendChild(delBtn)
+        myTr.appendChild(delTd)
+
+
+
+
+        document.querySelector("tbody").appendChild(myTr)
+
       })
-      document.querySelector("tbody").appendChild(myTr)
     }
+    displayAllusers()
+
+   
+
+    function deleteuser(i) {
+      // console.log(i);
+      users.splice(i, 1)
+      localStorage.setItem("users", JSON.stringify(users))
+      displayAllusers()
+    }
+
+    function edituser(i){
+      index=i
+      document.getElementById("adduser").style.display="none"
+      document.getElementById("updatebtn").style.display="block"
+      console.log("edited",users[i]);
+      var selecteduser=users[i]
+      for(a in selecteduser){
+        document.getElementById(a).value=selecteduser[a]
+      }
+
+    }
+    function clearForm() {
+      let user = {
+        fname: "",
+        email: "",
+        password: "",
+        state: ""
+      }
+      for (a in user) {
+        document.getElementById(a).value = ""
+      }
+    }
+
+    function updateUser(){
+      let user = {
+        fname: "",
+        email: "",
+        password: "",
+        state: ""
+      }
+      for (a in user) {
+        user[a]=document.getElementById(a).value
+      }
+      users[index]=user
+      localStorage.setItem("users",JSON.stringify(users))
+      displayAllusers()
+      clearForm()
+      document.getElementById("adduser").style.display="block"
+      document.getElementById("updatebtn").style.display="none"
+    }
+
   </script>
 </body>
 

@@ -75,9 +75,9 @@
       }
       users.push(user)
       localStorage.setItem("users", JSON.stringify(users))
+      clearForm() 
       displayAllusers()
-      clearForm(user)
-    }
+       }
     function displayAllusers() {
       document.querySelector("tbody").innerHTML = ""
       users.map((user, i) => {
@@ -102,7 +102,7 @@
 
 
         editTd.appendChild(editbtn)
-        deleteTd.appendChild(deletebtn)
+        deleteTd.appendChild(deletebtn) 
         myTr.appendChild(editTd)
         myTr.appendChild(deleteTd)
 
@@ -156,6 +156,12 @@
 
 
     function clearForm(user) {
+      let user = {
+        fname: "",
+        email: "",
+        password: "",
+        state: ""
+      }
       for (a in user) {
         document.getElementById(a).value = ""
       }

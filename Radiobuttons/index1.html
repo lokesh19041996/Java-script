@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index 1</title>
+</head>
+
+<body>
+  <form>
+    <label for="name">name</label>
+    <input type="text" id="name"><br><br>
+    <label for="email">email</label>
+    <input type="text" id="email"><br><br>
+
+    <label for="">options</label>
+    <select name="" id="pizza">
+      <option value="opt 1">1</option>
+      <option value="opt 2">2</option>
+      <option value="opt 3">3</option>
+      <option value="opt 4">4</option>
+
+    </select><br>
+
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="female">Female <br> <br>
+
+    <input type="checkbox" name="subjects" id="" value="HTML">HTML
+    <input type="checkbox" name="subjects" id="" value="css">css
+    <input type="checkbox" name="subjects" id="" value="JS">JS
+    <input type="checkbox" name="subjects" id="" value="RS">RS
+    <input type="checkbox" name="subjects" id="" value="Node">Node <br> <br>
+
+    <textarea name="" id="delivery" cols="30" rows="10"></textarea><br>
+    <button type="button" onclick="getValues()">get details</button>
+  </form>
+  <br>
+  <br>
+  <table border="1">
+    <thead>
+      <th>name</th>
+      <th>email</th>
+      <th>options</th>
+      <th>gender</th>
+      <th>checkbox</th>
+      <th>delivery</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <script>
+    function getValues() {
+      var person = {
+        name: "",
+        email: "",
+        pizza: "",
+        gender: "",
+        subjects: [],
+        delivery: ""
+      }
+
+      person.name = document.getElementById("name").value
+      person.email = document.getElementById("email").value
+      person.delivery = document.getElementById("delivery").value
+      person.pizza = document.getElementById("pizza").value
+
+
+
+      var allradiobtns = document.getElementsByName("gender")
+      allradiobtns.forEach((rbtns) => {
+        if (rbtns.checked) {
+          person.gender = rbtns.value
+        }
+      })
+      // console.log(person);
+
+      var allcheckBoxes = document.getElementsByName("subjects")
+      allcheckBoxes.forEach((allboxes) => {
+        if (allboxes.checked) {
+          person.subjects.push(allboxes.value)
+        }
+      })
+
+
+      console.log(person);
+      displaygetvalues(person)
+    }
+
+    function displaygetvalues(person) {
+      var myTr = document.createElement("tr")
+      for (a in person) {
+        var myTd = document.createElement("td")
+        myTd.innerHTML = person[a]
+        myTr.appendChild(myTd)
+      }
+
+      document.querySelector("tbody").appendChild(myTr)
+    }
+  </script>
+</body>
+
+</html>
