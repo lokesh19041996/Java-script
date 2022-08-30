@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index2</title>
+</head>
+<style>
+    img{
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+    <form>
+        <label for="">id</label>
+        <input type="text" id="id">
+        <br>
+        <br>
+        <label for="">title</label>
+        <input type="text" id="title">
+        <br>
+        <br> <label for="">price</label>
+        <input type="text" id="price">
+        <br>
+        <br> <label for="">description</label>
+        <input type="text" id="description">
+        <br>
+        <br>
+        <label for="">category</label>
+        <input type="text" id="category">
+        <br>
+        <br> 
+        <label for="">image</label>
+        <input type="text" id="image">
+        <br>
+        <br>  
+       
+        <label for="">rating</label>
+        <input type="text" id="rating">
+        <br>
+        <br>
+        <button type="button" onclick="productdetails()">submit</button>
+        <button type="button" onclick="updateform()">update</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>price</th>
+                <th>description</th>
+                <th>category</th>
+                <th>image</th>
+                <th>rating</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script src="./create.js"></script>
+    <script src="./read.js"></script>
+    <script src="./delete.js"></script>
+    <script src="./update.js"></script>
+</body>
+
+</html>
