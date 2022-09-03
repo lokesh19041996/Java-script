@@ -27,10 +27,10 @@
 // }
 
 
-let num3 = prompt("enter number")
-if (num3 > 4) {
-  document.write("it is a 4 digit number");
-} else {
-  document.write("it is not 4 digit number");
+// let num3 = prompt("enter number")
+// if (num3 > 4) {
+//   document.write("it is a 4 digit number");
+// } else {
+//   document.write("it is not 4 digit number");
 
-}
+// }

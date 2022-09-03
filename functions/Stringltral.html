@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>string literal</title>
+</head>
+
+<body onload="displayData()">
+  <table border="1">
+    <thead>
+      <th>Id</th>
+      <th>fname</th>
+      <th>email</th>
+    </thead>
+    <tbody id="display">
+
+    </tbody>
+  </table>
+  <script>
+    // var name="dilip"
+    // var sal=45000
+    // console.log("Employee Name "+ name +"  Employee sal " + sal);
+    // console.log(`Employee Name : ${name} and Employee Salary :${sal}` );
+
+
+    let employees = [{
+      id: "101",
+      fname: "dilip",
+      email: "dilip@gmail.com"
+
+    },
+    {
+      id: "102",
+      fname: "kumar",
+      email: "kumar@gmail.com"
+
+    },
+    {
+      id: "103",
+      fname: "sankar",
+      email: "sankar@gmail.com"
+
+    },
+    {
+      id: "104",
+      fname: "praveen",
+      email: "praveen@gmail.com"
+
+    },
+    {
+      id: "105",
+      fname: "gagan",
+      email: "gagan@gmail.com"
+
+    },
+    ]
+    function displayData() {
+      // console.log("display data");
+      // tag_ref=document.getElementById("display").innerHTML="<tr><td>101</td></tr>"
+      let row = ""
+      for (emp of employees) {
+        // console.log(a);
+        row = row + `<tr> <td> ${emp.id} </td> 
+          <td> ${emp.fname} </td>
+          <td> ${emp.email} </td>
+          </tr>`
+      }
+      document.getElementById("display").innerHTML = row
+    }
+  </script>
+</body>
+
+</html>
