@@ -13,13 +13,25 @@ let users = [{ "id": 1, "first_name": "Daisi", "last_name": "Whitmarsh", "email"
 function displayData(){
   rows=""
   users.map((user)=>{
-    rows= rows+`<tr> 
+    rows= rows+`<tr id="${user.id}"> 
     <td>${user.id}</td>
     <td>${user.first_name}</td>
     <td>${user.last_name}</td>
     <td>${user.email}</td>
     <td>${user.gender}</td>
+    <td><button class="btn btn-warning onclick="editMobile(event)">Edit</button></td>
+    <td><button class="btn btn-danger onclick="deleteMobile(e)">delete</button></td>
+
     </tr>`
   })
   document.querySelector("tbody").innerHTML=rows
+}
+displayData()
+
+function editMobile(event){
+console.log(event);
+}
+
+function deleteMobile(e){
+  console.log(e);
 }
