@@ -9,26 +9,44 @@ let users = [{ "id": 1, "first_name": "Daisi", "last_name": "Whitmarsh", "email"
 { "id": 9, "first_name": "Nelia", "last_name": "Edmett", "email": "nedmett8@illinois.edu", "gender": "Non-binary", "ip_address": "221.210.54.55" },
 { "id": 10, "first_name": "Dru", "last_name": "Sorrel", "email": "dsorrel9@usda.gov", "gender": "Bigender", "ip_address": "10.16.143.162" }]
 
-var id=null
+// var id=null
 function displayData() {
+
   rows = ""
-  users.map((user) => {
-    rows = rows + `<tr id="${user.id}"> 
-    <td>${user.first_name}</td>
-    <td>${user.last_name}</td>
-    <td>${user.email}</td>
-    <td>${user.gender}</td>
-    <td><button class="btn btn-warning onclick="editMobile((e)">Edit</button></td>
-    <td><button class="btn btn-danger onclick="deleteMobile(e)">delete</button></td>
+  // users.map((user) => {
+  //   rows = rows + `<tr id="${user.id}"> 
+  //   <td>${user.first_name}</td>
+  //   <td>${user.last_name}</td>
+  //   <td>${user.email}</td>
+  //   <td>${user.gender}</td>
+  //   <td><button class="btn btn-warning onclick="editMobile((e)">Edit</button></td>
+  //   <td><button class="btn btn-danger onclick="deleteMobile(e)">delete</button></td>
 
-    </tr>`
-  })
-  document.querySelector("tbody").innerHTML = rows
+  //   </tr>`
+  // })
+  if (users.length > 0) {
+    for (i = 0; i < users.length; i++) {
+      rows = rows + `<tr id="${users[i]['id']}">
+        <td>${users[i]['first_name']}</td>
+        <td>${users[i]['last_name']}</td>
+        <td>${users[i]['email']}</td>
+        <td>${users[i]['gender']}</td>
+        <td><button class="btn btn-warning onclick="editMobile(event)">Edit</button></td>
+        <td><button class="btn btn-danger onclick="deleteMobile(event)">delete</button></td>
+      
+      </tr>`
+    }
+    // console.log(users);
+    document.querySelector("tbody").innerHTML = rows
+
+  }
+
 }
-
+// displayData() 
 
 function editMobile(e) {
   console.log(e);
+
 }
 
 function deleteMobile(e) {
