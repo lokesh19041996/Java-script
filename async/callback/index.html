@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <th>Id</th>
+      <th>name</th>
+      <th>salary</th>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    
+    let employess = [{ id: "101", name: "Dilip", salary: "25000" },
+    { id: "102", name: "praveen", salary: "35000" }]
+
+    let createEmployee = (emp, callback) => {
+      setTimeout(() => {
+        employess.push(emp)
+        callback()
+      }, 4000)
+    }
+    let getEmployees = () => {
+      setTimeout(() => {
+        let rows = ""
+        employess.map((employee) => {
+          rows = rows + `<tr>
+            <td>${employee.id}</td>
+            <td>${employee.name}</td>
+            <td>${employee.salary}</td>
+            </tr>`
+        })
+        document.querySelector("tbody").innerHTML = rows
+      }, 2000)
+    }
+
+    createEmployee({ id: "103", name: "gagan", salary: "45000" }, getEmployees)
+
+  </script>
+</body>
+
+</html>
