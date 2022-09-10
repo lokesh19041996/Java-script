@@ -9,7 +9,7 @@ let users = [{ "id": 1, "first_name": "Daisi", "last_name": "Whitmarsh", "email"
 { "id": 9, "first_name": "Nelia", "last_name": "Edmett", "email": "nedmett8@illinois.edu", "gender": "Non-binary", "ip_address": "221.210.54.55" },
 { "id": 10, "first_name": "Dru", "last_name": "Sorrel", "email": "dsorrel9@usda.gov", "gender": "Bigender", "ip_address": "10.16.143.162" }]
 
-// var id=null
+let index=i
 function displayData() {
 
   rows = ""
@@ -31,8 +31,8 @@ function displayData() {
         <td>${users[i]['last_name']}</td>
         <td>${users[i]['email']}</td>
         <td>${users[i]['gender']}</td>
-        <td><button class="btn btn-warning onclick="editMobile(event)">Edit</button></td>
-        <td><button class="btn btn-danger onclick="deleteMobile(event)">delete</button></td>
+        <td><button class="btn btn-warning onclick="editMobile(i)">Edit</button></td>
+        <td><button class="btn btn-danger onclick="deleteMobile(i)">delete</button></td>
       
       </tr>`
     }
@@ -44,8 +44,8 @@ function displayData() {
 }
 // displayData() 
 
-function editMobile(e) {
-  console.log(e);
+function editMobile(i) {
+  console.log(i);
 
 }
 
